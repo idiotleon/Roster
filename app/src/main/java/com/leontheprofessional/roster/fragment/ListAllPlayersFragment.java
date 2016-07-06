@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.leontheprofessional.roster.R;
+
 /**
  * Created by yangl on 7/5/2016.
  */
@@ -18,7 +20,8 @@ public class ListAllPlayersFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         Log.v(LOG_TAG, "ListAllPlayersFragment injected.");
+        View view = inflater.inflate(R.layout.listview_players, container, false);
 
-        return super.onCreateView(inflater, container, savedInstanceState);
+        return view;
     }
 }
