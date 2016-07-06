@@ -25,7 +25,13 @@
     <android.support.v4.view.ViewPager
         android:id="@+id/player_roster_waitinglist_viewpager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></android.support.v4.view.ViewPager>
+        android:layout_height="match_parent">
+
+        <android.support.v4.view.PagerTabStrip
+            android:id="@+id/viewpager_header"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></android.support.v4.view.PagerTabStrip>
+    </android.support.v4.view.ViewPager>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"

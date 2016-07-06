@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.leontheprofessional.roster.fragment.ListAllPlayersFragment;
 import com.leontheprofessional.roster.fragment.ListAllWaitingListPlayersFragment;
@@ -19,6 +20,7 @@ import com.leontheprofessional.roster.fragment.ListAllWaitingListPlayersFragment
 public class MainActivity extends AppCompatActivity {
 
     private static final String LOG_TAG = MainActivity.class.getSimpleName();
+    private static final int VIEW_PAGER_NUM = 2;
 
 
     @Override
@@ -34,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public Fragment getItem(int position) {
                 Log.v(LOG_TAG, "position, getItem(): " + position);
-                if (position % 2 == 0) {
+                if (position == 0) {
                     ListAllPlayersFragment listAllPlayersFragment = new ListAllPlayersFragment();
                     return listAllPlayersFragment;
                 } else {
@@ -45,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public int getCount() {
-                return 0;
+                return VIEW_PAGER_NUM;
             }
         };
         viewPager.setAdapter(fragmentPagerAdapter);
@@ -53,6 +55,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
                 Log.v(LOG_TAG, "position, onPageScrolled(): " + position);
+                Toast.makeText(MainActivity.this,
+                        "Selected page position: " + position, Toast.LENGTH_SHORT).show();
             }
 
             @Override
