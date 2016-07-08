@@ -3,17 +3,22 @@ package com.leontheprofessional.roster.database;
 import android.content.ContentProvider;
 import android.content.ContentValues;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.support.annotation.Nullable;
 
 /**
  * Created by Leon on 7/6/2016.
  */
-public class PlayersContentProvider extends ContentProvider{
-    
+public class PlayersContentProvider extends ContentProvider {
+    private DBHelper dbHelper;
+    private SQLiteDatabase sqLiteDatabase;
+
     @Override
     public boolean onCreate() {
-        return false;
+        dbHelper = new DBHelper(getContext());
+        sqLiteDatabase = dbHelper.getWritableDatabase();
+        return (sqLiteDatabase == null) ? false : true;
     }
 
     @Nullable
