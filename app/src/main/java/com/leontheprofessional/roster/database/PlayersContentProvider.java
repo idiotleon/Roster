@@ -39,12 +39,11 @@ public class PlayersContentProvider extends ContentProvider {
 
     static {
         uriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
-        uriMatcher.addURI(PROVIDER_NAME, "lists", PLAYERS_LIST);
-        uriMatcher.addURI(PROVIDER_NAME, "lists/#", PLAYER_LIST);
-        uriMatcher.addURI(PROVIDER_NAME, "waiting_lists", PLAYERS_WAITING_LIST);
+        uriMatcher.addURI(PROVIDER_NAME, "list", PLAYERS_LIST);
+        uriMatcher.addURI(PROVIDER_NAME, "list/#", PLAYER_LIST);
+        uriMatcher.addURI(PROVIDER_NAME, "waiting_list", PLAYERS_WAITING_LIST);
         uriMatcher.addURI(PROVIDER_NAME, "waiting_list/#", PLAYER_WAITING_LIST);
     }
-
 
     @Override
     public boolean onCreate() {
@@ -57,7 +56,7 @@ public class PlayersContentProvider extends ContentProvider {
     @Override
     public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
         SQLiteQueryBuilder sqLiteQueryBuilder = new SQLiteQueryBuilder();
-        switch(uriMatcher.match(uri)){
+        switch (uriMatcher.match(uri)) {
             case PLAYERS_LIST:
                 sqLiteQueryBuilder.setTables(DBContract.TABLE_PLAYER_LIST);
                 return sqLiteQueryBuilder.query(sqLiteDatabase, PROJECTION_FOR_ALL, null, null, null, null, null);
@@ -90,7 +89,6 @@ public class PlayersContentProvider extends ContentProvider {
                 return PLAYER_WAITING_LIST_TYPE;
             default:
                 throw new IllegalArgumentException("Unsupported URI: " + uri);
-
         }
     }
 

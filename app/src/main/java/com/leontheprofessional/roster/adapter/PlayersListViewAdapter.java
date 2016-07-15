@@ -7,7 +7,7 @@ import android.widget.BaseAdapter;
 /**
  * Created by Leon on 7/6/2016.
  */
-public class PlayerListViewAdapter extends BaseAdapter{
+public class PlayersListViewAdapter extends BaseAdapter{
 
     @Override
     public int getCount() {

@@ -10,7 +10,6 @@ import android.util.Log;
  */
 public class DBHelper extends SQLiteOpenHelper {
     private static final String LOG_TAG = DBHelper.class.getSimpleName();
-    private SQLiteDatabase sqLiteDatabase;
 
     public DBHelper(Context context) {
         super(context, DBContract.DATABASE_NAME, null, DBContract.DATABASE_VERSION);
@@ -18,9 +17,9 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        sqLiteDatabase.execSQL(DBContract.PLAYERS_LIST_TABLE_CREATION_QUERY);
+        db.execSQL(DBContract.PLAYERS_LIST_TABLE_CREATION_QUERY);
         Log.v(LOG_TAG, "DBContract.PLAYERS_LIST_TABLE_CREATION_QUERY: " + DBContract.PLAYERS_LIST_TABLE_CREATION_QUERY);
-        sqLiteDatabase.execSQL(DBContract.PLAYERS_WAITING_LIST_TABLE_CREATION_QUERY);
+        db.execSQL(DBContract.PLAYERS_WAITING_LIST_TABLE_CREATION_QUERY);
         Log.v(LOG_TAG, "DBContract.PLAYERS_WAITING_LIST_TABLE_CREATION_QUERY: " + DBContract.PLAYERS_WAITING_LIST_TABLE_CREATION_QUERY);
     }
 
