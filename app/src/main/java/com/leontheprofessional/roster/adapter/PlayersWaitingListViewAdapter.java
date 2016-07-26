@@ -30,7 +30,11 @@ public class PlayersWaitingListViewAdapter extends BaseAdapter {
         Uri uri = Uri.parse(PlayersContentProvider.PROVIDER_NAME + "/waiting_list");
         int count = 0;
         Cursor resultCursor = context.getContentResolver().query(uri, PlayersContentProvider.PROJECTION_FOR_ALL, null, null, null);
-        if(resultCursor.moveToFirst()) count = resultCursor.getCount();
+        if (resultCursor != null && resultCursor.getCount() > 0) {
+            count = resultCursor.getCount();
+        } else {
+            count = 0;
+        }
         return count;
     }
 

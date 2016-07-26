@@ -32,4 +32,6 @@ public class ListAllWaitingListPlayersFragment extends Fragment {
 
         return view;
     }
+
+
 }

@@ -21,7 +21,6 @@
 
     </android.support.design.widget.AppBarLayout>
 
-
     <android.support.v4.view.ViewPager
         android:id="@+id/player_roster_waitinglist_viewpager"
         android:layout_width="match_parent"
