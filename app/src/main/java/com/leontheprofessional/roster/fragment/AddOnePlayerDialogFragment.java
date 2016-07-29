@@ -11,6 +11,7 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.leontheprofessional.roster.R;
@@ -18,10 +19,9 @@ import com.leontheprofessional.roster.R;
 /**
  * Created by yangl on 7/5/2016.
  */
-public class AddOnePlayerDialogFragment extends DialogFragment{
+public class AddOnePlayerDialogFragment extends DialogFragment {
 
-
-    public static AddOnePlayerDialogFragment newInstance(){
+    public static AddOnePlayerDialogFragment newInstance() {
         AddOnePlayerDialogFragment addOnePlayerDialogFragment = new AddOnePlayerDialogFragment();
 
         return addOnePlayerDialogFragment;
@@ -32,10 +32,28 @@ public class AddOnePlayerDialogFragment extends DialogFragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.add_one_player_dialog_fragment, container, false);
 
+        getDialog().setTitle(getResources().getString(R.string.add_one_player));
+
+        Button btnConfirm = (Button) view.findViewById(R.id.btn_confirm_add_one_player);
+        btnConfirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        Button btnCancel = (Button) view.findViewById(R.id.btn_cancel_add_one_player);
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
         return view;
     }
 
-    @TargetApi(Build.VERSION_CODES.M)
+/*    @TargetApi(Build.VERSION_CODES.M)
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
@@ -49,5 +67,5 @@ public class AddOnePlayerDialogFragment extends DialogFragment{
         });
 
         return super.onCreateDialog(savedInstanceState);
-    }
+    }*/
 }

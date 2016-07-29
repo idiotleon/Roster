@@ -2,6 +2,13 @@
     <string name="app_name">Roster</string>
     <string name="action_settings">Settings</string>
 
+    <string name="player_height">Height</string>
+    <string name="player_weight">Weight</string>
+    <string name="player_name">Name</string>
+    <string name="player_gender">Gender</string>
+
+    <string name="add_one_player">Add One Player</string>
+
     <string name="confirm">Confirm</string>
     <string name="cancel">Cancel</string>
 </resources>
