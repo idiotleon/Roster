@@ -2,7 +2,6 @@ package com.leontheprofessional.roster.fragment;
 
 import android.annotation.TargetApi;
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.os.Build;
@@ -38,15 +37,35 @@ public class AddOnePlayerDialogFragment extends DialogFragment {
         btnConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // todo: database interactions here
 
             }
         });
 
         Button btnCancel = (Button) view.findViewById(R.id.btn_cancel_add_one_player);
         btnCancel.setOnClickListener(new View.OnClickListener() {
+            @TargetApi(Build.VERSION_CODES.M)
             @Override
             public void onClick(View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                builder.setTitle(getResources().getText(R.string.dicard_changes));
+                builder.setPositiveButton(getResources().getText(R.string.confirm),
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                //((DialogFragment) getFragmentManager().findFragmentByTag("add_one_player_dialog")).dismiss();
+                                getDialog().dismiss();
+                            }
+                        }
+                ).setNegativeButton(getResources().getText(R.string.cancel),
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                // getDialog().dismiss();
+                            }
+                        });
 
+                builder.show();
             }
         });
 
