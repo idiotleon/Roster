@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +20,8 @@ import com.leontheprofessional.roster.R;
  * Created by yangl on 7/5/2016.
  */
 public class AddOnePlayerDialogFragment extends DialogFragment {
+
+    private static final String LOG_TAG = AddOnePlayerDialogFragment.class.getSimpleName();
 
     public static AddOnePlayerDialogFragment newInstance() {
         AddOnePlayerDialogFragment addOnePlayerDialogFragment = new AddOnePlayerDialogFragment();
@@ -38,7 +41,7 @@ public class AddOnePlayerDialogFragment extends DialogFragment {
             @Override
             public void onClick(View v) {
                 // todo: database interactions here
-
+                Log.v(LOG_TAG, "btnConfirm clicked!");
             }
         });
 
