@@ -10,8 +10,9 @@ public class PlayerModel {
     private String nickName;
     private String height;
     private float height_international;
-    private float weight;
+    private String weight;
     private float weight_international;
+    private int gender;
 
     public String getFirstName() {
         return firstName;
@@ -53,11 +54,11 @@ public class PlayerModel {
         this.height_international = height_international;
     }
 
-    public float getWeight() {
+    public String getWeight() {
         return weight;
     }
 
-    public void setWeight(float weight) {
+    public void setWeight(String weight) {
         this.weight = weight;
     }
 
@@ -69,20 +70,30 @@ public class PlayerModel {
         this.weight_international = weight_international;
     }
 
-    public static class Gender {
-        public enum GenderType {Male, Female}
+    public void setGender(String gender) {
+        if (gender == "Unkown") this.gender = 0;
+        else if (gender == "Male") this.gender = 1;
+        else if (gender == "Female") this.gender = 2;
+        else this.gender = 9;
+    }
 
-        private GenderType gender;
+    public String getGender() {
+        if (this.gender == 0) return "Unknown";
+        else if (this.gender == 1) return "Male";
+        else if (this.gender == 2) return "Female";
+        else return "NotApplicable";
+    }
 
-        public Gender(GenderType gender){
+    public enum GENDERTYPE {
+        Unknown(0),
+        Male(1),
+        Female(2),
+        NotApplicable(9);
+
+        private int gender;
+
+        GENDERTYPE(int gender) {
             this.gender = gender;
         }
-
-        public Gender getGender(){
-            return
-        }
-
-
-
     }
 }

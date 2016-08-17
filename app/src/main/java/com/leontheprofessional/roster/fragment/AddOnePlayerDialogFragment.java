@@ -12,9 +12,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Toast;
+import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.leontheprofessional.roster.R;
+import com.leontheprofessional.roster.model.PlayerModel;
 
 /**
  * Created by yangl on 7/5/2016.
@@ -22,6 +24,13 @@ import com.leontheprofessional.roster.R;
 public class AddOnePlayerDialogFragment extends DialogFragment {
 
     private static final String LOG_TAG = AddOnePlayerDialogFragment.class.getSimpleName();
+
+    private TextView tvPlayerNickName;
+    private TextView tvPlayerFirstName;
+    private TextView tvPlayerLastName;
+    private Spinner spinnerGender;
+    private Spinner spinnerHeight;
+    private Spinner spinnerWeight;
 
     public static AddOnePlayerDialogFragment newInstance() {
         AddOnePlayerDialogFragment addOnePlayerDialogFragment = new AddOnePlayerDialogFragment();
@@ -34,14 +43,35 @@ public class AddOnePlayerDialogFragment extends DialogFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.add_one_player_dialog_fragment, container, false);
 
+        tvPlayerNickName = (TextView) view.findViewById(R.id.tv_nickname_add_one_player);
+        tvPlayerFirstName = (TextView) view.findViewById(R.id.tv_firstname_add_one_player);
+        tvPlayerLastName = (TextView) view.findViewById(R.id.tv_lastname_add_one_player);
+        spinnerGender = (Spinner) view.findViewById(R.id.spinner_gender_add_one_player);
+        spinnerHeight = (Spinner) view.findViewById(R.id.spinner_height_add_one_player);
+        spinnerWeight = (Spinner) view.findViewById(R.id.spinner_weight_add_one_player);
+
         getDialog().setTitle(getResources().getString(R.string.add_one_player));
 
         Button btnConfirm = (Button) view.findViewById(R.id.btn_confirm_add_one_player);
         btnConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // todo: database interactions here
                 Log.v(LOG_TAG, "btnConfirm clicked!");
+                PlayerModel playerModel = new PlayerModel();
+                String nickName = (String) tvPlayerNickName.getText();
+                playerModel.setNickName(nickName);
+                String firstName = (String) tvPlayerFirstName.getText();
+                playerModel.setFirstName(firstName);
+                String lastName = (String) tvPlayerLastName.getText();
+                playerModel.setLastName(lastName);
+                String height = spinnerHeight.getSelectedItem().toString();
+                playerModel.setHeight(height);
+                String weight = spinnerWeight.getSelectedItem().toString();
+                playerModel.setWeight(weight);
+                String gender = spinnerGender.getSelectedItem().toString();
+                playerModel.setGender(gender);
+                // todo: database interactions here
+
             }
         });
 
@@ -51,7 +81,7 @@ public class AddOnePlayerDialogFragment extends DialogFragment {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-                builder.setTitle(getResources().getText(R.string.dicard_changes));
+                builder.setTitle(getResources().getText(R.string.discard_changes));
                 builder.setPositiveButton(getResources().getText(R.string.confirm),
                         new DialogInterface.OnClickListener() {
                             @Override

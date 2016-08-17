@@ -4,12 +4,28 @@
 
     <string name="player_height">Height</string>
     <string name="player_weight">Weight</string>
-    <string name="player_name">Name</string>
+    <string name="player_firstname">First Name</string>
+    <string name="player_lastname">Last Name</string>
+    <string name="player_nickname">Nickname</string>
     <string name="player_gender">Gender</string>
 
     <string name="add_one_player">Add One Player</string>
 
     <string name="confirm">Confirm</string>
     <string name="cancel">Cancel</string>
-    <string name="dicard_changes">Discard changes?</string>
+    <string name="discard_changes">Discard changes?</string>
+
+    <integer-array name="genders">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>9</item>
+    </integer-array>
+
+    <string-array name="gender_names">
+        <item>Unknown</item>
+        <item>Male</item>
+        <item>Female</item>
+        <item>NotApplicable</item>
+    </string-array>
 </resources>
