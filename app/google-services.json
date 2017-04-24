@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "401893671166",
+    "firebase_url": "https://roster-d158f.firebaseio.com",
+    "project_id": "roster-d158f",
+    "storage_bucket": "roster-d158f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:401893671166:android:4c34b270ec976fc7",
+        "android_client_info": {
+          "package_name": "com.leontheprofessional.roster"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "401893671166-17e8o7ak1i0egjgp1a59qhd6oqoe1qlc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.leontheprofessional.roster",
+            "certificate_hash": "475b65b16b51399387d2e467631e004185ad7906"
+          }
+        },
+        {
+          "client_id": "401893671166-3r446d1706fa1um5h8okq4p350u9ptc2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2buz8GhNQE8FjG8Waygha6ul07QrbvUo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "401893671166-3r446d1706fa1um5h8okq4p350u9ptc2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
